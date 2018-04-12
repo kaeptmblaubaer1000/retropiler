@@ -23,15 +23,15 @@ dependencies {
     compile 'me.tatarka:gradle-retrolambda:3.6.1'
 }
 
-if (rootProject.hasProperty('versionName') && rootProject.hasProperty('bintrayUser')) {
-    jar {
-        manifest {
-            attributes(
-                    "Implementation-Version": project.file("../VERSION").text.trim(),
-            )
-        }
+jar {
+    manifest {
+        attributes(
+                "Implementation-Version": project.file("../VERSION").text.trim(),
+        )
     }
+}
 
+if (rootProject.hasProperty('versionName') && rootProject.hasProperty('bintrayUser')) {
     apply plugin: 'com.novoda.bintray-release'
 
     publish {
